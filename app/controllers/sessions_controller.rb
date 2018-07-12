@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     # Create an error message and re-render the signin form.
     log_in @user
     params[:session][:remember_me] == '1'? remember(@user): forget(@user)
-    redirect_to @user
+    redirect_back_or @user
 
    else
      flash.now[:danger] = "Invalid email/password combination."
